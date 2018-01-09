@@ -1,2 +1,0 @@
-# AndroidSales
-Project Akhir PENS

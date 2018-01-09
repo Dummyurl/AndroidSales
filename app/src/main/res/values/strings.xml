@@ -1,0 +1,168 @@
+<resources>
+    <string name="app_name">Sales Assistant </string>
+    <string name="currency">Rp\u0020</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Setting</string>
+
+
+    <!-- string.xml -->
+    <string name="nav_home">Beranda</string>
+    <string name="nav_user">Sales</string>
+    <string name="nav_order">Pemesanan</string>
+    <string name="nav_profile">Profil</string>
+    <string name="nav_logout">Logout</string>
+
+    <!-- activity_login.xml -->
+    <string name="et_login_phone_hint">No HP </string>
+    <string name="tv_login_email">Email </string>
+    <string name="tv_login_password">Password </string>
+    <string name="btn_login">Login</string>
+    <string name="btn_send">Kirim</string>
+    <string name="tv_login_note"></string>
+
+    <!-- activity_register.xml -->
+    <string name="tv_reg">Daftar</string>
+    <string name="tv_reg_name_hint">Nama </string>
+    <string name="tv_reg_pincode">KodePos</string>
+    <string name="tv_reg_socity">Toko Pelanggan</string>
+    <string name="btn_reg_socity_choose">Pilih Toko...</string>
+    <string name="tv_reg_house">No Toko</string>
+    <string name="btn_reg_update">Perbaharui Profil</string>
+    <string name="et_reg_search">Cari Toko...</string>
+    <string name="tv_reg_note"></string>
+    <string name="tv_reg_address">Alamat</string>
+    <string name="et_reg_address">Alamat Lengkap</string>
+
+    <!-- fragment_cart.xml -->
+    <string name="tv_cart_title">Keranjang</string>
+    <string name="tv_cart_clear">Hapus Pemesanan</string>
+    <string name="tv_cart_checkout">Lanjutkan Pembayaran</string>
+    <string name="tv_cart_total">Total:\u0020</string>
+    <string name="tv_cart_item">Barang:\u0020</string>
+    <string name="tv_cart_rs">\u0020Rs</string>
+
+    <!-- fragment_delivery_time.xml -->
+    <string name="tv_del_title">Tanggal/Jam Pengiriman </string>
+    <string name="tv_del_address">Alamat Pengiriman</string>
+    <string name="et_del_address_hint">Masukan Alamat Pengiriman..</string>
+    <string name="tv_del_continue">Lanjutkan dengan jam</string>
+    <string name="tv_del_date">Pilih Tanggal Pengiriman</string>
+    <string name="tv_del_time">Pilih Jam Pengiriman</string>
+    <string name="tv_del_date_time">Tanggal/Jam Pengiriman</string>
+    <string name="tv_total_item_amount">Jumlah Barang </string>
+    <string name="tv_total_total">Jumlah Barang </string>
+
+    <!-- fragment_home.xml -->
+    <string name="tv_home_cat">Daftar Produk</string>
+    <string name="tv_home_view">Liat Semua ></string>
+
+    <!-- row_product_rv.xml -->
+    <string name="tv_pro_add">Tambah</string>
+    <string name="tv_pro_update">Tambah</string>
+    <string name="tv_pro_price">Harga Per\u0020</string>
+    <string name="tv_pro_rs">Rp.\u0020</string>
+    <string name="tv_pro_total">Total: </string>
+
+    <!-- fragment_confirm_order.xml -->
+    <string name="tv_conf_order_title">Detail Pembayaran</string>
+
+    <!-- fragment_my_order_detail.xml -->
+    <string name="tv_order_cancle">Batal Pemesanan</string>
+    <string name="tv_order_summery">Hasil</string>
+    <string name="tv_order_total">Total: Rp.</string>
+    <string name="tv_order_qty">Qty</string>
+    <string name="tv_order_rs">Rp.</string>
+
+    <!-- fragment_order_thanks.xml -->
+    <string name="tv_thanks_title">Terimakasih Sudah Membeli.</string>
+    <string name="tv_thanks_home">Kembali Keberanda</string>
+    <string name="tv_thanks_order">Pantau Pembelian</string>
+
+    <!-- Forgot password -->
+    <string name="forgot">Lupa Password ?</string>
+
+    <!-- Code message and concat  string -->
+    <string name="my_order">Pesanan</string>
+    <string name="edit_profile">Ubah Profil</string>
+    <string name="delivery">Pengiriman</string>
+    <string name="delivery_date">"Tanggal Pengiriman: </string>
+    <string name="please_select_date">Silahkan Pilih Tanggal</string>
+    <string name="no_rcord_found">Tidak Ada Data</string>
+    <string name="connection_time_out">Koneksi telah selesai</string>
+    <string name="add_delivery_address">Tambah alamat pengiriman</string>
+    <string name="order_now">Pesan Sekarang</string>
+    <string name="payment_detail">Detail Pembelian</string>
+    <string name="delivery_time">Waktu Pengiriman</string>
+    <string name="please_enter_pincode">Masukan Kodepos</string>
+    <string name="receiver_mobile_number">No HP Penerima </string>
+    <string name="receiver_name_req">Nama Penerima</string>
+    <string name="phone_too_short">No HP terlalu pendek</string>
+    <string name="please_add_address">Tambahkan Alamat</string>
+    <string name="please_select_address">Pilih Alamat</string>
+    <string name="please_select_date_time">Silahkan pilih tanggal dan jam</string>
+    <string name="profile_updated">Profil Terbaruhi</string>
+    <string name="uploading_profile_data">Uploading profile data</string>
+    <string name="cancle_order_note">Apakah yakin membatalkan pesanan?</string>
+    <string name="no">Tidak</string>
+    <string name="yes">Iya</string>
+    <string name="thank_you">Terimakasih</string>
+    <string name="password_too_short">Password terlalu pendek</string>
+    <string name="invalide_email_address">Email Salah</string>
+    <string name="no_internet">Maaf! Tidak ada koneksi</string>
+    <string name="order_no">Pesanan No:\u0020</string>
+    <string name="pending">Tertunda</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="delivered">Pengiriman</string>
+    <string name="cancle">Batal</string>
+    <string name="date">Tanggal:\u0020</string>
+    <string name="time">Jam:\u0020</string>
+    <string name="search_msg">Cari Kacang dll</string>
+    <string name="change_password">Ubah Password</string>
+    <string name="old_password">Password Lama </string>
+    <string name="new_password">Password Baru </string>
+    <string name="confirm_password"> Konfirmasi Password </string>
+    <string name="password_not_same">Konfirmasi Password dan Password baru tidak sama.</string>
+    <string name="delivery_charge">Biaya Pengiriman:\u0020</string>
+    <string name="amount">Jumlah:\u0020</string>
+    <string name="search_here">Cari disini...</string>
+    <string name="total_amount">Total Jumlah:\u0020</string>
+    <string name="search">Cari</string>
+    <string name="enter_keyword">Masukan Katakunci</string>
+    <string name="delete">Hapus</string>
+    <string name="edit">Ubah</string>
+    <string name="description">Deskripsi:</string>
+
+    <!-- row_delivery_time.xml -->
+    <string name="tv_deli_socity">Toko Pelanggan:</string>
+    <string name="tv_deli_mobile">No HP:</string>
+    <string name="tv_deli_pin">Kode Pos:</string>
+
+    <!-- delivery_payment_detail_fragment.java -->
+    <string name="tv_deli_pay_ontime">Tepat Waktu :\u0020</string>
+    <string name="tv_deli_pay_address">Alamat:\u0020</string>
+
+    <!-- delivery_get_address_adapter.java -->
+    <string name="reciver_name">Nama Penerima:\u0020</string>
+    <string name="reciver_mobile">No HP Penerima:\u0020</string>
+    <string name="pincode">Kode Pos:\u0020</string>
+    <string name="house_no">No Toko:\u0020</string>
+    <string name="socity">Toko Pelanggan:\u0020</string>
+
+    <string name="permission_dialog">Accessing Location Permissions required</string>
+    <string name="go_to_permissions_settings">Go to App settings and enable permissions</string>
+
+    <string name="permission_rationale">Please grant location permission to start the service</string>
+    <string name="permission_denied_explanation">You have not granted location permission. So the service cannot be started.</string>
+    <string name="settings">settings</string>
+    <string name="title_alert_no_intenet">No internet</string>
+    <string name="msg_alert_no_internet">Please make sure that you have active internet connection.</string>
+    <string name="no_google_playservice_available">No Google Playservice found. Please install it.</string>
+    <string name="msg_location_service_not_started">Lokasi Tracking Berhenti</string>
+    <string name="msg_location_service_started">Lokasi Tracking Dimulai</string>
+    <string name="btn_label_refresh">Refresh</string>
+
+</resources>

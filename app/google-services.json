@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "711241539194",
+    "firebase_url": "https://point-of-sales-b9d30.firebaseio.com",
+    "project_id": "point-of-sales-b9d30",
+    "storage_bucket": "point-of-sales-b9d30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711241539194:android:b0ff41c0b8432cb0",
+        "android_client_info": {
+          "package_name": "pandu.ptbintangpos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711241539194-84shtfk9fg41bm783v0dsa4mh94d0bj6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pandu.ptbintangpos",
+            "certificate_hash": "29ae805ea7366b4138a5460a013e38e296eca31d"
+          }
+        },
+        {
+          "client_id": "711241539194-glf6qh8skffjh8hjvjbt37li2f6nhoak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzPxbXacSWphXB5vvos3m6YVojuUlECPo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711241539194-glf6qh8skffjh8hjvjbt37li2f6nhoak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

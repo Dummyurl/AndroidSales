@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_nav_home"
+            android:title="@string/nav_home" />
+        <item android:title="@string/nav_user" android:id="@+id/nav_user">
+            <menu>
+                <item
+                    android:id="@+id/nav_myorders"
+                    android:icon="@drawable/ic_nav_order"
+                    android:title="@string/nav_order" />
+                <item
+                    android:id="@+id/nav_myprofile"
+                    android:icon="@drawable/ic_nav_profile"
+                    android:title="@string/nav_profile" />
+                <item
+                    android:id="@+id/nav_kunjungan"
+                    android:icon="@drawable/ic_nav_support"
+                    android:title="Kunjungan" />
+                <item
+                    android:id="@+id/nav_toko"
+                    android:icon="@drawable/ic_nav_about"
+                    android:title="Lokasi" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_exit"
+                    android:title="@string/nav_logout" />
+            </menu>
+        </item>
+
+    </group>
+</menu>

@@ -97,7 +97,7 @@
     <string name="order_now">Pesan Sekarang</string>
     <string name="payment_detail">Detail Pembelian</string>
     <string name="delivery_time">Waktu Pengiriman</string>
-    <string name="please_enter_pincode">Masukan Kodepos</string>
+    <string name="please_enter_pincode">Masukan Alamat</string>
     <string name="receiver_mobile_number">No HP Penerima </string>
     <string name="receiver_name_req">Nama Penerima</string>
     <string name="phone_too_short">No HP terlalu pendek</string>
@@ -139,7 +139,7 @@
     <!-- row_delivery_time.xml -->
     <string name="tv_deli_socity">Toko Pelanggan:</string>
     <string name="tv_deli_mobile">No HP:</string>
-    <string name="tv_deli_pin">Kode Pos:</string>
+    <string name="tv_deli_pin">Alamat:</string>
 
     <!-- delivery_payment_detail_fragment.java -->
     <string name="tv_deli_pay_ontime">Tepat Waktu :\u0020</string>
@@ -148,8 +148,8 @@
     <!-- delivery_get_address_adapter.java -->
     <string name="reciver_name">Nama Penerima:\u0020</string>
     <string name="reciver_mobile">No HP Penerima:\u0020</string>
-    <string name="pincode">Kode Pos:\u0020</string>
-    <string name="house_no">No Toko:\u0020</string>
+    <string name="pincode">Alamat:\u0020</string>
+    <string name="house_no">Keterangan:\u0020</string>
     <string name="socity">Toko Pelanggan:\u0020</string>
 
     <string name="permission_dialog">Accessing Location Permissions required</string>

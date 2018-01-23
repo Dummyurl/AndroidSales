@@ -49,7 +49,7 @@ public class Cart_fragment extends Fragment implements View.OnClickListener {
     private static String TAG = Cart_fragment.class.getSimpleName();
 
     private RecyclerView rv_cart;
-    private TextView tv_clear, tv_total, tv_item;
+    private TextView tv_clear,tv_chart_total,tv_total, tv_item;
     private Button btn_checkout;
 
     private DatabaseHandler db;
@@ -119,7 +119,8 @@ public class Cart_fragment extends Fragment implements View.OnClickListener {
 
     // update UI
     private void updateData() {
-        tv_total.setText("" + db.getTotalAmount());
+        Double total_amount = Double.parseDouble(db.getTotalAmount());
+        tv_total.setText("" + total_amount);
         tv_item.setText("" + db.getCartCount());
         ((MainActivity) getActivity()).setCartCounter("" + db.getCartCount());
     }

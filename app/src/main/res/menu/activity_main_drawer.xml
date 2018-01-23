@@ -23,7 +23,7 @@
                 <item
                     android:id="@+id/nav_toko"
                     android:icon="@drawable/ic_nav_about"
-                    android:title="Lokasi" />
+                    android:title="Lokasi Toko" />
                 <item
                     android:id="@+id/nav_logout"
                     android:icon="@drawable/ic_exit"

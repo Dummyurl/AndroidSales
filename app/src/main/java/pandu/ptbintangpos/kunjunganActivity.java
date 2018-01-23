@@ -54,6 +54,7 @@ public class kunjunganActivity extends AppCompatActivity {
     private static final String TAG_MESSAGE = "message";
     private String KEY_IMAGE = "image";
     private String KEY_SALES = "sales";
+    private String KEY_ID = "user_id";
     private String KEY_KETERANGAN = "keterangan";
     private String KEY_TOKO = "toko";
     private String KEY_PEMILIK = "pemilik";
@@ -153,6 +154,7 @@ public class kunjunganActivity extends AppCompatActivity {
 
                 //menambah parameter yang di kirim ke web servis
                 params.put(KEY_IMAGE, getStringImage(decoded));
+                params.put(KEY_ID, sessionManagement.getUserDetails().get(BaseURL.KEY_ID));
                 params.put(KEY_SALES, sessionManagement.getUserDetails().get(BaseURL.KEY_NAME));
                 //params.put(KEY_SALES, namakunj.getText().toString().trim());
                 params.put(KEY_KETERANGAN, ketkunj.getText().toString().trim());

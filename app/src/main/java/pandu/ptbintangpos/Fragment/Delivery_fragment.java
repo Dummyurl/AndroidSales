@@ -378,8 +378,8 @@ public class Delivery_fragment extends Fragment implements View.OnClickListener 
                 //Toast.makeText(getActivity(), deli_charges, Toast.LENGTH_SHORT).show();
 
                 Double total = Double.parseDouble(db_cart.getTotalAmount())+Integer.parseInt(deli_charges);
-
-                tv_total.setText("" + db_cart.getTotalAmount() +" + "+deli_charges+" = "+total);
+                Double total_amount = Double.parseDouble(db_cart.getTotalAmount());
+                tv_total.setText("" +total_amount +" + "+deli_charges+" = "+total);
             }
         }
     };

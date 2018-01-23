@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sales Assistant </string>
+    <string name="app_name">UPINDO JAYA </string>
     <string name="currency">Rp\u0020</string>
     <string name="title_activity_main">MainActivity</string>
 
@@ -27,10 +27,10 @@
     <!-- activity_register.xml -->
     <string name="tv_reg">Daftar</string>
     <string name="tv_reg_name_hint">Nama </string>
-    <string name="tv_reg_pincode">KodePos</string>
+    <string name="tv_reg_pincode">Alamat</string>
     <string name="tv_reg_socity">Toko Pelanggan</string>
     <string name="btn_reg_socity_choose">Pilih Toko...</string>
-    <string name="tv_reg_house">No Toko</string>
+    <string name="tv_reg_house">Keterangan</string>
     <string name="btn_reg_update">Perbaharui Profil</string>
     <string name="et_reg_search">Cari Toko...</string>
     <string name="tv_reg_note"></string>

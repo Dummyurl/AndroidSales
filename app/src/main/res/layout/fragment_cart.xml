@@ -78,14 +78,14 @@
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dp"
+                    android:layout_marginLeft="4dp"
                     android:text="@string/currency" />
 
                 <TextView
                     android:id="@+id/tv_cart_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="50" />
+                    android:text="5000000" />
 
 
 

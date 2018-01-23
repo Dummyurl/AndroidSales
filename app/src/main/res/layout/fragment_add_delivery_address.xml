@@ -88,7 +88,7 @@
                 android:id="@+id/tv_add_adres_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hp Pemilik Toko"
+                android:text="Keterangan"
                 android:textSize="14sp" />
 
             <EditText

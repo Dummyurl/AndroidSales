@@ -37,7 +37,7 @@ public class BaseURL {
 
 
 
-    public static String BASE_URL = "http://192.168.100.3/mimin/";
+    public static String BASE_URL = "http://upindojaya.store/mimin/";
 
 
 

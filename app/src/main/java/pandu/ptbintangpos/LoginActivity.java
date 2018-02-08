@@ -55,11 +55,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tv_password = (TextView) findViewById(R.id.tv_login_password);
         tv_email = (TextView) findViewById(R.id.tv_login_email);
         btn_continue = (Button) findViewById(R.id.btnContinue);
-        btn_register = (Button) findViewById(R.id.btnRegister);
+        //btn_register = (Button) findViewById(R.id.btnRegister);
         btn_forgot = (TextView) findViewById(R.id.btnForgot);
 
         btn_continue.setOnClickListener(this);
-        btn_register.setOnClickListener(this);
+        //btn_register.setOnClickListener(this);
         btn_forgot.setOnClickListener(this);
 
     }
@@ -70,9 +70,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (id == R.id.btnContinue) {
             attemptLogin();
-        } else if (id == R.id.btnRegister) {
-            Intent startRegister = new Intent(LoginActivity.this, RegisterActivity.class);
-            startActivity(startRegister);
         }else if (id == R.id.btnForgot) {
             Intent startRegister = new Intent(LoginActivity.this, ForgotActivity.class);
             startActivity(startRegister);

@@ -48,6 +48,9 @@ public class PermissionHelper {
             int permissionCamera = ContextCompat.checkSelfPermission(mActivity, Manifest.permission.CAMERA);
             int permissionReadStorage = ContextCompat.checkSelfPermission(mActivity, Manifest.permission.READ_EXTERNAL_STORAGE);
             int permissionWriteStorage = ContextCompat.checkSelfPermission(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            int permissionInternet = ContextCompat.checkSelfPermission(mActivity, Manifest.permission.INTERNET);
+            int permissionFineLocation= ContextCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION);
+            int permissionCoarseLocation = ContextCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION);
 
             List<String> listPermissionsNeeded = new ArrayList<>();
 
@@ -59,6 +62,15 @@ public class PermissionHelper {
             }
             if (permissionWriteStorage != PackageManager.PERMISSION_GRANTED) {
                 listPermissionsNeeded.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            }
+            if (permissionInternet != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(Manifest.permission.INTERNET);
+            }
+            if (permissionFineLocation != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(Manifest.permission.ACCESS_FINE_LOCATION);
+            }
+            if (permissionCoarseLocation != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(Manifest.permission.ACCESS_COARSE_LOCATION);
             }
             if (!listPermissionsNeeded.isEmpty()) {
                 ActivityCompat.requestPermissions(mActivity, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), REQUEST_PERMISSION);

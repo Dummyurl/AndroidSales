@@ -30,8 +30,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 import pandu.ptbintangpos.Adapter.Cart_adapter;
 import pandu.ptbintangpos.AppController;
@@ -119,8 +121,10 @@ public class Cart_fragment extends Fragment implements View.OnClickListener {
 
     // update UI
     private void updateData() {
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
         Double total_amount = Double.parseDouble(db.getTotalAmount());
-        tv_total.setText("" + total_amount);
+        tv_total.setText("" + formatRupiah.format(total_amount));
         tv_item.setText("" + db.getCartCount());
         ((MainActivity) getActivity()).setCartCounter("" + db.getCartCount());
     }

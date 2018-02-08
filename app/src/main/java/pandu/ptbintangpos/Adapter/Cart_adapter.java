@@ -12,8 +12,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 import pandu.ptbintangpos.Config.BaseURL;
 import pandu.ptbintangpos.R;
@@ -26,6 +28,8 @@ public class Cart_adapter extends RecyclerView.Adapter<Cart_adapter.ProductHolde
     Activity activity;
     int lastpostion;
     DatabaseHandler dbHandler;
+    Locale localeID = new Locale("in", "ID");
+    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
 
     public Cart_adapter(Activity activity, ArrayList<HashMap<String, String>> list) {
         this.list = list;
@@ -49,9 +53,6 @@ public class Cart_adapter extends RecyclerView.Adapter<Cart_adapter.ProductHolde
         final HashMap<String, String> map = list.get(position);
 
 
-
-
-
         Glide.with(activity)
                 .load(BaseURL.IMG_PRODUCT_URL + map.get("product_image"))
                 .centerCrop()
@@ -61,15 +62,16 @@ public class Cart_adapter extends RecyclerView.Adapter<Cart_adapter.ProductHolde
                 .dontAnimate()
                 .into(holder.iv_logo);
 
+        Double harga = Double.parseDouble(map.get("price"));
         holder.tv_title.setText(map.get("product_name"));
         holder.tv_price.setText(activity.getResources().getString(R.string.tv_pro_price) + map.get("unit_value") + " " +
-                map.get("unit") +" "+activity.getResources().getString(R.string.currency)+" "+ map.get("price"));
+                map.get("unit") +" "+formatRupiah.format(harga));
         holder.tv_contetiy.setText(map.get("qty"));
 
         Double items = Double.parseDouble(dbHandler.getInCartItemQty(map.get("product_id")));
         Double price = Double.parseDouble(map.get("price"));
-
-        holder.tv_total.setText("" + price * items);
+        Double total = price * items;
+        holder.tv_total.setText("" + formatRupiah.format(total));
 
         holder.iv_minus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,8 +114,9 @@ public class Cart_adapter extends RecyclerView.Adapter<Cart_adapter.ProductHolde
 
                 Double items = Double.parseDouble(dbHandler.getInCartItemQty(map.get("product_id")));
                 Double price = Double.parseDouble(map.get("price"));
+                Double total = price * items;
+                holder.tv_total.setText("" + formatRupiah.format(total));
 
-                holder.tv_total.setText("" + price * items );
                updateintent();
             }
         });

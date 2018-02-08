@@ -90,15 +90,7 @@
             android:textSize="18sp" />
 
 
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_8"
-            android:background="@drawable/xml_button"
-            android:text="@string/tv_reg"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
+
 
         <TextView
             android:id="@+id/btnForgot"

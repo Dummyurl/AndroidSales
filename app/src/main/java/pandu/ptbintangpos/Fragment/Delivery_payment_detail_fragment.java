@@ -22,8 +22,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import pandu.ptbintangpos.AppController;
@@ -88,15 +90,16 @@ public class Delivery_payment_detail_fragment extends Fragment {
 
         tv_timeslot.setText(getdate + " " + gettime);
         tv_address.setText(getaddress);
-
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
         Double total = Double.parseDouble(db_cart.getTotalAmount()) + deli_charges;
         Double total_amount = Double.parseDouble(db_cart.getTotalAmount());
         //tv_total.setText("" + db_cart.getTotalAmount());
         //tv_item.setText("" + db_cart.getCartCount());
         tv_total.setText(getResources().getString(R.string.tv_cart_item) + db_cart.getCartCount() + "\n" +
-                getResources().getString(R.string.amount) + total_amount + "\n" +
+                getResources().getString(R.string.amount) + formatRupiah.format(total_amount) + "\n" +
                 getResources().getString(R.string.delivery_charge) + deli_charges + "\n" +
-                getResources().getString(R.string.total_amount) + total_amount + " + " + deli_charges + " = " + total  + " ");
+                getResources().getString(R.string.total_amount) + formatRupiah.format(total_amount) + " + " + deli_charges + " = " + formatRupiah.format(total)  + " ");
 
         btn_order.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -35,6 +35,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import pandu.ptbintangpos.Adapter.Delivery_get_address_adapter;
@@ -109,7 +111,10 @@ public class Delivery_fragment extends Fragment implements View.OnClickListener 
         //et_address = (EditText) view.findViewById(R.id.et_deli_address);
 
         db_cart = new DatabaseHandler(getActivity());
-        tv_total.setText("" + db_cart.getTotalAmount());
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        Double total_amount = Double.parseDouble(db_cart.getTotalAmount());
+        tv_total.setText("" + formatRupiah.format(total_amount));
         tv_item.setText("" + db_cart.getCartCount());
 
         // get session user data
@@ -376,10 +381,11 @@ public class Delivery_fragment extends Fragment implements View.OnClickListener 
                 //updateData();
                 deli_charges = intent.getStringExtra("charge");
                 //Toast.makeText(getActivity(), deli_charges, Toast.LENGTH_SHORT).show();
-
+                Locale localeID = new Locale("in", "ID");
+                NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
                 Double total = Double.parseDouble(db_cart.getTotalAmount())+Integer.parseInt(deli_charges);
                 Double total_amount = Double.parseDouble(db_cart.getTotalAmount());
-                tv_total.setText("" +total_amount +" + "+deli_charges+" = "+total);
+                tv_total.setText("" + formatRupiah.format(total_amount) +" + "+deli_charges+" = "+formatRupiah.format(total));
             }
         }
     };

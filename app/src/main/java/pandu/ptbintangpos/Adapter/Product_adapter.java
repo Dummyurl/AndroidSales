@@ -17,9 +17,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import pandu.ptbintangpos.Config.BaseURL;
 import pandu.ptbintangpos.MainActivity;
@@ -35,6 +37,8 @@ public class Product_adapter extends RecyclerView.Adapter<Product_adapter.MyView
     private List<Produk_model> mFilteredList;
     private Context context;
     private DatabaseHandler dbcart;
+    Locale localeID = new Locale("in", "ID");
+    NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tv_title, tv_price, tv_total, tv_contetiy, tv_add;
@@ -118,10 +122,12 @@ public class Product_adapter extends RecyclerView.Adapter<Product_adapter.MyView
                     tv_add.setText(context.getResources().getString(R.string.tv_pro_add));
                 }
 
+                Locale localeID = new Locale("in", "ID");
+                NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
                 Double items = Double.parseDouble(dbcart.getInCartItemQty(map.get("product_id")));
                 Double price = Double.parseDouble(map.get("price"));
-
-                tv_total.setText("" + price * items);
+                Double harga = price*items;
+                tv_total.setText("" +formatRupiah.format(harga));
                 ((MainActivity) context).setCartCounter("" + dbcart.getCartCount());
 
             } else if (id == R.id.iv_subcat_img) {
@@ -168,8 +174,9 @@ public class Product_adapter extends RecyclerView.Adapter<Product_adapter.MyView
                 .into(holder.iv_logo);
 
         holder.tv_title.setText(mList.getProduct_name());
+        Double harga = Double.parseDouble(mList.getPrice());
         holder.tv_price.setText(context.getResources().getString(R.string.tv_pro_price) + mList.getUnit_value() + " " +
-                mList.getUnit() + " " + context.getResources().getString(R.string.currency) + " " + mList.getPrice());
+                mList.getUnit() + " " + formatRupiah.format(harga));
 
         if (dbcart.isInCart(mList.getProduct_id())) {
             holder.tv_add.setText(context.getResources().getString(R.string.tv_pro_update));
@@ -178,10 +185,11 @@ public class Product_adapter extends RecyclerView.Adapter<Product_adapter.MyView
             holder.tv_add.setText(context.getResources().getString(R.string.tv_pro_add));
         }
 
+
         Double items = Double.parseDouble(dbcart.getInCartItemQty(mList.getProduct_id()));
         Double price = Double.parseDouble(mList.getPrice());
-
-        holder.tv_total.setText("" + price * items);
+        Double total = price * items;
+        holder.tv_total.setText("" + formatRupiah.format(total));
 
     }
 

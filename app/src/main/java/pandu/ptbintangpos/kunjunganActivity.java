@@ -1,12 +1,17 @@
 package pandu.ptbintangpos;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -31,8 +36,12 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -43,8 +52,12 @@ public class kunjunganActivity extends AppCompatActivity {
     EditText namakunj, tokokunj, tokopemilik, alamatkunj, ketkunj;
     Bitmap bitmap, decoded;
     int success;
-    int PICK_IMAGE_REQUEST = 1;
+    Intent intent;
+    Uri fileUri;
+    public final int REQUEST_CAMERA = 0;
+    public final int SELECT_FILE = 1;
     int bitmap_size = 60; // range 1 - 100
+    int max_resolution_image = 800;
 
     private static final String TAG = kunjunganActivity.class.getSimpleName();
 
@@ -84,7 +97,7 @@ public class kunjunganActivity extends AppCompatActivity {
         buttonChoose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showFileChooser();
+                selectImage();
             }
         });
 
@@ -143,7 +156,7 @@ public class kunjunganActivity extends AppCompatActivity {
                         loading.dismiss();
 
                         //menampilkan toast
-                        Toast.makeText(kunjunganActivity.this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(kunjunganActivity.this, "Foto Kunjungan harus dimasukkan!", Toast.LENGTH_LONG).show();
                         Log.e(TAG, error.getMessage().toString());
                     }
                 }) {
@@ -171,26 +184,58 @@ public class kunjunganActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(stringRequest, tag_json_obj);
     }
 
-    private void showFileChooser() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    private void selectImage() {
+        imageView.setImageResource(0);
+        final CharSequence[] items = {"Camera", "Pilih dari Gallery",
+                "Batal"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(kunjunganActivity.this);
+        builder.setTitle("Ambil Foto!");
+        builder.setIcon(R.mipmap.ic_logo_2);
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (items[item].equals("Camera")) {
+                    intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    fileUri = getOutputMediaFileUri();
+                    intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, fileUri);
+                    startActivityForResult(intent, REQUEST_CAMERA);
+                } else if (items[item].equals("Pilih dari Gallery")) {
+                    intent = new Intent();
+                    intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_FILE);
+                } else if (items[item].equals("Batal")) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.show();
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.e("onActivityResult", "requestCode " + requestCode + ", resultCode " + resultCode);
 
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri filePath = data.getData();
-            try {
-                //mengambil fambar dari Gallery
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                // 512 adalah resolusi tertinggi setelah image di resize, bisa di ganti.
-                setToImageView(getResizedBitmap(bitmap, 512));
-            } catch (IOException e) {
-                e.printStackTrace();
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == REQUEST_CAMERA) {
+                try {
+                    Log.e("CAMERA", fileUri.getPath());
+
+                    bitmap = BitmapFactory.decodeFile(fileUri.getPath());
+                    setToImageView(getResizedBitmap(bitmap, max_resolution_image));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } else if (requestCode == SELECT_FILE && data != null && data.getData() != null) {
+                try {
+                    // mengambil gambar dari Gallery
+                    bitmap = MediaStore.Images.Media.getBitmap(kunjunganActivity.this.getContentResolver(), data.getData());
+                    setToImageView(getResizedBitmap(bitmap, max_resolution_image));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -230,6 +275,30 @@ public class kunjunganActivity extends AppCompatActivity {
             width = (int) (height * bitmapRatio);
         }
         return Bitmap.createScaledBitmap(image, width, height, true);
+    }
+    public Uri getOutputMediaFileUri() {
+        return Uri.fromFile(getOutputMediaFile());
+    }
+
+    private static File getOutputMediaFile() {
+
+        // External sdcard location
+        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "UPINDO JAYA");
+
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                Log.e("Monitoring", "Oops! Failed create Monitoring directory");
+                return null;
+            }
+        }
+
+        // Create a media file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+        File mediaFile;
+        mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_Upindo_" + timeStamp + ".jpg");
+
+        return mediaFile;
     }
 
 }

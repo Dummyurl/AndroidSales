@@ -71,13 +71,6 @@
                     android:text="@string/tv_cart_total"
                     android:textSize="@dimen/space_13" />
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dp"
-                    android:text="@string/currency"
-                    android:textSize="@dimen/space_13" />
 
                 <TextView
                     android:id="@+id/tv_subcat_total"

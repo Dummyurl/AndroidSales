@@ -63,7 +63,7 @@
     <!-- row_product_rv.xml -->
     <string name="tv_pro_add">Tambah</string>
     <string name="tv_pro_update">Tambah</string>
-    <string name="tv_pro_price">Harga Per\u0020</string>
+    <string name="tv_pro_price">Harga PER\u0020</string>
     <string name="tv_pro_rs">Rp.\u0020</string>
     <string name="tv_pro_total">Total: </string>
 
@@ -136,6 +136,7 @@
     <string name="edit">Ubah</string>
     <string name="description">Deskripsi:</string>
 
+
     <!-- row_delivery_time.xml -->
     <string name="tv_deli_socity">Toko Pelanggan:</string>
     <string name="tv_deli_mobile">No HP:</string>
@@ -152,14 +153,14 @@
     <string name="house_no">Keterangan:\u0020</string>
     <string name="socity">Toko Pelanggan:\u0020</string>
 
-    <string name="permission_dialog">Accessing Location Permissions required</string>
+    <string name="permission_dialog">Akses Izin Lokasi Dibutuhkan</string>
     <string name="go_to_permissions_settings">Go to App settings and enable permissions</string>
 
-    <string name="permission_rationale">Please grant location permission to start the service</string>
+    <string name="permission_rationale">Izinkan akses lokasi untuk melanjutkan ! silahkan klik OK untuk mengaktifkan. </string>
     <string name="permission_denied_explanation">You have not granted location permission. So the service cannot be started.</string>
     <string name="settings">settings</string>
     <string name="title_alert_no_intenet">No internet</string>
-    <string name="msg_alert_no_internet">Please make sure that you have active internet connection.</string>
+    <string name="msg_alert_no_internet">Pastikan Internet Anda Aktif.</string>
     <string name="no_google_playservice_available">No Google Playservice found. Please install it.</string>
     <string name="msg_location_service_not_started">Lokasi Tracking Berhenti</string>
     <string name="msg_location_service_started">Lokasi Tracking Dimulai</string>

@@ -162,12 +162,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/tv_cart_total" />
 
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/space_2"
-                    android:text="@string/currency" />
+
 
                 <TextView
                     android:id="@+id/tv_deli_total"

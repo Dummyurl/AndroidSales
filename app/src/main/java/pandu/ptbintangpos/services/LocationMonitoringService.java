@@ -56,7 +56,7 @@ public class LocationMonitoringService extends Service implements
 
 
         int priority = LocationRequest.PRIORITY_HIGH_ACCURACY; //by default
-        //PRIORITY_BALANCED_POWER_ACCURACY, PRIORITY_LOW_POWER, PRIORITY_NO_POWER are the other priority modes
+        //PRIORITY_BALANCED_POWER_ACCURACY, PRIORITY_LOW_POWER,PRIORITY_HIGH_ACCURACY, PRIORITY_NO_POWER are the other priority modes
 
 
         mLocationRequest.setPriority(priority);

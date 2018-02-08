@@ -1,5 +1,7 @@
 package pandu.ptbintangpos;
 
+import android.*;
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,6 +15,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import pandu.ptbintangpos.Helper.PermissionHelper;
 import pandu.ptbintangpos.util.Session_management;
 
 
@@ -20,7 +23,8 @@ public class SplashActivity extends AppCompatActivity {
 
     public static final int MY_PERMISSIONS_REQUEST_WRITE_FIELS = 102;
     private AlertDialog dialog;
-
+    PermissionHelper permissionHelper;
+    Intent intent;
     private Session_management sessionManagement;
 
     @Override
@@ -40,7 +44,7 @@ public class SplashActivity extends AppCompatActivity {
 
                 try {
                     // Thread will sleep for 5 seconds
-                    sleep(2 * 1000);
+                    sleep( 2 * 1000);
 
                     // After 5 seconds redirect to another intent
                     checkAppPermissions();
@@ -50,10 +54,27 @@ public class SplashActivity extends AppCompatActivity {
                 }
             }
         };
+        permissionHelper = new PermissionHelper(this);
+
+        checkAndRequestPermissions();
+
 
         // start thread
         background.start();
     }
+    private boolean checkAndRequestPermissions() {
+        permissionHelper.permissionListener(new PermissionHelper.PermissionListener() {
+            @Override
+            public void onPermissionCheckDone() {
+                go_next();
+            }
+        });
+
+        permissionHelper.checkAndRequestPermissions();
+
+        return true;
+    }
+
 
     public void checkAppPermissions() {
         if (ContextCompat.checkSelfPermission(this,
@@ -79,14 +100,14 @@ public class SplashActivity extends AppCompatActivity {
                         },
                         MY_PERMISSIONS_REQUEST_WRITE_FIELS);
             }
-        } else {
-            go_next();
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        permissionHelper.onRequestCallBack(requestCode, permissions, grantResults);
         if (requestCode == MY_PERMISSIONS_REQUEST_WRITE_FIELS) {
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {

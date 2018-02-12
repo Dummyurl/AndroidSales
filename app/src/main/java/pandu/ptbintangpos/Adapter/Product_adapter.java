@@ -2,6 +2,7 @@ package pandu.ptbintangpos.Adapter;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -74,10 +75,14 @@ public class Product_adapter extends RecyclerView.Adapter<Product_adapter.MyView
             int position = getAdapterPosition();
 
             if (id == R.id.iv_subcat_plus) {
-
                 int qty = Integer.valueOf(tv_contetiy.getText().toString());
-                qty = qty + 1;
-
+                if(qty < Integer.parseInt(modelList.get(position).getIn_stock())){
+                    qty = qty + 1;
+                }
+                else {
+                    Snackbar snackbar = Snackbar.make(view, "Melebihi Jumlah Stock", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                }
                 tv_contetiy.setText(String.valueOf(qty));
 
             } else if (id == R.id.iv_subcat_minus) {
